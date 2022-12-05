@@ -1,6 +1,6 @@
-const mongoose = require('module');
+const mongoose = require('mongoose');
 
-const postSchema = new mongoose,Schema({
+const postSchema = new mongoose.Schema({
     topic:{
         type:String,
         required:true

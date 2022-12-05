@@ -1,6 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
+
+//import routes
+const postRoutes = require('./routes/posts');
+
+//App middleware
+app.use(bodyParser.json());
+
+//Route Middleware
+app.use(postRoutes);
+
 const PORT = 8000;
 
 const DB_URL = 'mongodb+srv://ramesh:mangotree1999@crud.izru9jn.mongodb.net/MONGO_DB?retryWrites=true&w=majority'
