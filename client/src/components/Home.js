@@ -15,7 +15,7 @@ componentDidMount(){
 }
 
 retrievePosts(){
-  axios.get("http://localhost:8000/posts").then(res=>{
+  axios.get("/posts").then(res=>{
     if(res.data.success){
       this.setState({
         posts:res.data.existingPosts
@@ -28,7 +28,7 @@ retrievePosts(){
 
   render(){
     return(
-      <div className='container'>
+      <div className='container' style={{marginTop:'100px'}}>
         <h2 className='text-center mt-5'><u>All Posts</u></h2>
         <table className='table table-hover mt-5 pl-5'>
           <thead>
@@ -42,10 +42,10 @@ retrievePosts(){
           </thead>
           <tbody>
             {this.state.posts.map((posts,index)=>(
-              <tr>
+              <tr key={index}>
                 <th scope="row">{index+1}</th>
                 <td>
-                <a href ={`/post/{posts._id}`} style={{textDecoration:'none'}}>
+                <a href ={`/post/${posts._id}`} style={{textDecoration:'none'}}>
                     {posts.topic}</a></td>
                 <td>{posts.description}</td>
                 <td>{posts.postCategory}</td>
@@ -55,14 +55,14 @@ retrievePosts(){
                   </a>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <a className='btn btn-danger' href="#">
-                  <i class="fa-regular fa-trash-can"></i>&nbsp;Delete
+                  <i className="fa-regular fa-trash-can"></i>&nbsp;Delete
                   </a>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-    <button className='btn btn-success'>
+    <button className='btn btn-success mb-5'>
         <a href="/add" style={{textDecoration:'none',color:'white'}}>Create New Post</a></button>
       </div>
     )
