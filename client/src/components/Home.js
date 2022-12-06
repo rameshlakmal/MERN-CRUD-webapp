@@ -50,7 +50,7 @@ retrievePosts(){
                 <td>{posts.description}</td>
                 <td>{posts.postCategory}</td>
                 <td>
-                  <a className='btn btn-warning' href="#">
+                  <a className='btn btn-warning' href={`/edit/${posts._id}`}>
                     <i className='fas fa-edit'></i>&nbsp;Edit
                   </a>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
