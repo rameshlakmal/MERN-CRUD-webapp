@@ -1,9 +1,14 @@
 import React,{Component} from 'react';
 import './styles.css';
+import axios from 'axios';
 
 
 
 export default class NavBar extends Component{
+
+
+
+
     render(){
       return(
           
@@ -24,10 +29,9 @@ export default class NavBar extends Component{
                   </li>
                 </ul>
 
-                <form className="form-inline my-2 my-lg-0 mr-5 pr-5">
-                  <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-                    <button className="btn btn-light my-2 my-sm-0" type="submit">Search</button>
-                </form>
+     
+                    
+                
               </div>
             </nav>
           

@@ -32,11 +32,33 @@ onDelete=(id)=>{
     })
 }
 
+filterData(posts,searchKey){
+    const result = posts.filter((post)=>
+    post.topic.toLowerCase().includes(searchKey)||
+    post.description.toLowerCase().includes(searchKey)||
+    post.postCategory.toLowerCase().includes(searchKey)
+    )
+    this.setState({posts:result})
+  }
+
+handleSearchArea = (e)=>{
+  const searchKey = e.currentTarget.value;
+
+  axios.get("/posts").then(res=>{
+    if(res.data.success){
+      this.filterData(res.data.existingPosts,searchKey)
+    }
+  });
+
+}
+
 
   render(){
     return(
       <div className='container' style={{marginTop:'100px'}}>
         <h2 className='text-center mt-5'><u>All Posts</u></h2>
+        <input className="form-control mr-sm-2 col-3 float-right mb-5" type="search" placeholder="Search" name='searchQuery' onChange={this.handleSearchArea}></input>
+
         <table className='table table-hover mt-5 pl-5'>
           <thead>
             <tr>
