@@ -25,6 +25,13 @@ retrievePosts(){
   });
 }
 
+onDelete=(id)=>{
+    axios.delete(`/post/delete/${id}`).then((res)=>{
+        alert("Deleted Successfully...!");
+        this.retrievePosts();
+    })
+}
+
 
   render(){
     return(
@@ -54,7 +61,7 @@ retrievePosts(){
                     <i className='fas fa-edit'></i>&nbsp;Edit
                   </a>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <a className='btn btn-danger' href="#">
+                  <a className='btn btn-danger' href="#" onClick={()=>this.onDelete(posts._id)}>
                   <i className="fa-regular fa-trash-can"></i>&nbsp;Delete
                   </a>
                 </td>
