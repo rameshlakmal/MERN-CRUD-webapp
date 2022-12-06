@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 
 export default class EditPost extends Component{
@@ -37,7 +38,7 @@ onSubmit= (e)=>{
 
   axios.put(`/post/update/${id}`,data).then((res)=>{
     if(res.data.success){
-      alert("Post Updated Successfully...!")
+      swal("Good job!", "Post Updated Successfull...!", "info");
       this.setState({
         topic:"",
         description:"",

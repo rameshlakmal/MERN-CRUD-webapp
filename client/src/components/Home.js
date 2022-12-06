@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import swal from 'sweetalert';
 import './styles.css';
 
 export default class Home extends Component{
@@ -27,7 +28,7 @@ retrievePosts(){
 
 onDelete=(id)=>{
     axios.delete(`/post/delete/${id}`).then((res)=>{
-        alert("Deleted Successfully...!");
+        swal("Deleted", "Data Record Deleted Successfull...!", "warning");
         this.retrievePosts();
     })
 }
@@ -66,7 +67,7 @@ handleSearchArea = (e)=>{
               <th scope='col'>Topic</th>
               <th scope='col'>Description</th>
               <th scope='col'>Post Category</th>
-              <th scope='col'>Action</th>
+              <th scope='col' className='text-center'>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -78,7 +79,7 @@ handleSearchArea = (e)=>{
                     {posts.topic}</a></td>
                 <td>{posts.description}</td>
                 <td>{posts.postCategory}</td>
-                <td>
+                <td className='text-center'>
                   <a className='btn btn-warning' href={`/edit/${posts._id}`}>
                     <i className='fas fa-edit'></i>&nbsp;Edit
                   </a>
@@ -91,7 +92,7 @@ handleSearchArea = (e)=>{
             ))}
           </tbody>
         </table>
-    <button className='btn btn-success mb-5'>
+    <button className='btn btn-success mb-5 mt-5 ml-5'>
         <a href="/add" style={{textDecoration:'none',color:'white'}}>Create New Post</a></button>
       </div>
     )

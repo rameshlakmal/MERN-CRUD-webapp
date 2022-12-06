@@ -25,7 +25,7 @@ export default class NavBar extends Component{
                   </li>
 
                   <li className="nav-item pl-3">
-                    <a className="nav-link" href="/add">&nbsp;&nbsp;Create New&nbsp;&nbsp;</a>
+                    <a className="nav-link" href="/add">&nbsp;&nbsp;Create New Post&nbsp;&nbsp;</a>
                   </li>
                 </ul>
 

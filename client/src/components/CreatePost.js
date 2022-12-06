@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import swal from 'sweetalert';
 import axios from 'axios';
 
 
@@ -34,6 +35,7 @@ onSubmit= (e)=>{
 
   axios.post("/post/save",data).then((res)=>{
     if(res.data.success){
+      swal("Good job!", "Post Created Successfull...!", "success");
       this.setState({
         topic:"",
         description:"",

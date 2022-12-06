@@ -42,6 +42,7 @@ export default class PostDetails extends Component{
             <dd className="col-sm-9">{postCategory}</dd>
 
           </d1>
+        
           </div>
       )
     }
