@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import './App.css';
+import './styles.css';
 
 export default class Home extends Component{
   constructor(props){
@@ -29,8 +29,8 @@ retrievePosts(){
   render(){
     return(
       <div className='container'>
-        <h2 className='text-center'>All Posts</h2>
-        <table className='table table-hover mt-5'>
+        <h2 className='text-center mt-5'><u>All Posts</u></h2>
+        <table className='table table-hover mt-5 pl-5'>
           <thead>
             <tr>
               <th scope='col'>#</th>
@@ -44,7 +44,9 @@ retrievePosts(){
             {this.state.posts.map((posts,index)=>(
               <tr>
                 <th scope="row">{index+1}</th>
-                <td>{posts.topic}</td>
+                <td>
+                <a href ={`/post/{posts._id}`} style={{textDecoration:'none'}}>
+                    {posts.topic}</a></td>
                 <td>{posts.description}</td>
                 <td>{posts.postCategory}</td>
                 <td>
@@ -60,7 +62,8 @@ retrievePosts(){
             ))}
           </tbody>
         </table>
-    
+    <button className='btn btn-success'>
+        <a href="/add" style={{textDecoration:'none',color:'white'}}>Create New Post</a></button>
       </div>
     )
   }
